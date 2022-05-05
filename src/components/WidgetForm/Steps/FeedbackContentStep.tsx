@@ -7,6 +7,7 @@ import { ScreenshotButton } from '../ScreenshotButton'
 type FeedbackContentStepProps = {
   feedbackType: FeedbackType
   onFeedbackRestartRequested: () => void
+  onFeedbackSent: () => void
 }
 export function FeedbackContentStep(props: FeedbackContentStepProps) {
   const [screenshot, setScreenshot] = useState<string | null>(null)
@@ -19,6 +20,8 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
       screenshot,
       comment,
     })
+
+    props.onFeedbackSent()
   }
 
   return (
